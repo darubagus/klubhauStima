@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "TG583jiEQb5w9wN1EOKjtQ7RgOTm8ibgsuXkjAdKQ9/r6Kb0xmE53wacffaHUQF0DORZBP6X2gm/5H0267RC9w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\setres\\setres\\setres.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\automaticgraphlayout\\1.1.11\\automaticgraphlayout.1.1.11.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.11\\automaticgraphlayout.drawing.1.1.11.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\automaticgraphlayout.graphviewergdi\\1.1.11\\automaticgraphlayout.graphviewergdi.1.1.11.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\automaticgraphlayout.wpfgraphcontrol\\1.1.11\\automaticgraphlayout.wpfgraphcontrol.1.1.11.nupkg.sha512"
+  ],
+  "logs": []
+}
