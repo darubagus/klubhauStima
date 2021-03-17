@@ -67,18 +67,27 @@ namespace setres
         public class Graph
         {
             //create a form 
-            System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+            private System.Windows.Forms.Form form = new System.Windows.Forms.Form();
             
             //create a viewer object 
-            Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+            private Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
             
             //create a graph object 
-            Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
+            private Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
             // create list of edge representation
             // kira2 enakan pake list atau dictionary ya?
+            // kayanya enakan pake dictionary sih
             
             // create Edge
+            public void createEdge(string node1, string node2){
+                Microsoft.Msagl.Drawing.Edge edge;
+                edge = this.graph.AddEdge(node1, node2);
+                edge.Attr.Color = Microsoft.Msagl.Drawing.color.Black;
+                string edgeName = node1 + "-" + node2;
+                //kurang nambahin ke list of edge
+            }
 
+            
         }
     }
 }
