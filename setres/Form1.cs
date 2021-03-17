@@ -66,6 +66,18 @@ namespace setres
 
         public class Graph
         {
+            //create a form 
+            System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+            
+            //create a viewer object 
+            Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+            
+            //create a graph object 
+            Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
+            // create list of edge representation
+            // kira2 enakan pake list atau dictionary ya?
+            
+            // create Edge
 
         }
     }
