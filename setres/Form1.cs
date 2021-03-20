@@ -76,6 +76,7 @@ namespace setres
             private Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
             // create list of edge representation
             // kira2 enakan pake list atau dictionary ya?
+            
             // kayanya enakan pake dictionary sih
             
             // create Edge
@@ -85,6 +86,7 @@ namespace setres
                 edge.Attr.Color = Microsoft.Msagl.Drawing.color.Black;
                 string edgeName = node1 + "-" + node2;
                 //kurang nambahin ke list of edge
+
             }
 
             
