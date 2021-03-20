@@ -121,11 +121,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\setres\\setres\\setres.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\klubhauStima\\setres\\setres.csproj",
       "projectName": "setres",
-      "projectPath": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\setres\\setres\\setres.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\klubhauStima\\setres\\setres.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\setres\\setres\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\klubhauStima\\setres\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

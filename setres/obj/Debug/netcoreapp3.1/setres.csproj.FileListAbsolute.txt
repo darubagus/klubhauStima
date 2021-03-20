@@ -19,3 +19,12 @@ C:\Users\ASUS\Documents\college\stima\tubes\tubes 2\setres\setres\obj\Debug\netc
 C:\Users\ASUS\Documents\college\stima\tubes\tubes 2\setres\setres\obj\Debug\netcoreapp3.1\setres.dll
 C:\Users\ASUS\Documents\college\stima\tubes\tubes 2\setres\setres\obj\Debug\netcoreapp3.1\setres.pdb
 C:\Users\ASUS\Documents\college\stima\tubes\tubes 2\setres\setres\obj\Debug\netcoreapp3.1\setres.genruntimeconfig.cache
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.csprojAssemblyReference.cache
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.Form1.resources
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.Properties.Resources.resources
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.csproj.GenerateResource.cache
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.AssemblyInfoInputs.cache
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.AssemblyInfo.cs
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.csproj.CoreCompileInputs.cache
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.dll
+c:\Users\ASUS\Documents\college\stima\tubes\tubes 2\klubhauStima\setres\obj\Debug\netcoreapp3.1\setres.pdb
