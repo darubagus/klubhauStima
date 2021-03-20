@@ -3,8 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-// This is based on the graph implementation found at: https://msdn.microsoft.com/en-us/library/ms379574(v=vs.80).aspx
-// But is updated to work in the latest C# and Net Core
+// Struktur
+// class Node: name(string), list_of_neighbors (Collection<string>), num_of_neighbors (int), visited(?)
+// method: constructNode, 
+
+// class Graph: list_of_nodes (Collection<Node>)
+// method: constructGraph, AddEdge, getNumberOfVertices, 
+
 namespace Graph1
 {
     class Program
@@ -207,6 +212,8 @@ namespace Graph1
         {
             return GetEnumerator();
         }
+
+        public void DFS()
     }
     
 
