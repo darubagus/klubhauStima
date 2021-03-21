@@ -7,6 +7,98 @@ using System.Collections.ObjectModel;
 // class Node: name(string), list_of_neighbors (Collection<string>), num_of_neighbors (int), visited(?)
 // method: constructNode, 
 
+public class Node {
+    private string name;
+    private Collection<string> neighbors;
+    private int num_of_neighbors;
+
+    public Node() { }
+
+    public Node(string name)
+    {
+        this.name = name;
+        this.neighbors = new Collection<string>();
+        this.num_of_neighbors = 0;
+    }
+
+    public Node(string name, Collection<string> neighbors) 
+    {
+        this.name = name;
+        if (neighbors == null)
+        {
+            this.neighbors = new Collection<string>();
+        }
+        else
+        {
+            this.neighbors = neighbors;
+        }
+        this.num_of_neighbors = neighbors.Count();
+    }
+
+    public void addNeighbor(string neighbor)
+    {
+        this.neighbors.Add(neighbor);
+        this.num_of_neighbors = neighbors.Count();
+    }
+
+    public bool findNeighbor(string neighbor)
+    {
+        return this.neighbors.Contains(neighbor);
+    }
+}
+
+public class Graph {
+    private Collection<Node> Nodes;
+
+    public Graph() {}
+
+    public Graph(Collection<Node> Nodes)
+    {
+        if (Nodes == null)
+        {
+            this.Nodes = new Collection<Node>();
+        } 
+        else 
+        {
+            this.Nodes = Nodes;
+        }
+    }
+
+    public void addNode(Node node)
+    {
+        Nodes.add(Node);
+    }
+
+    public int numberOfVertices()
+    {
+        return this.Nodes.Count();
+    }
+
+    
+
+    private void loadPopulationFromFile(string filename)
+    {
+        using (StreamReader sr = File.OpenText(filename))
+        {
+            string line = sr.ReadLine();
+            string[] tmp = line.Split();
+            int numEdges = Int32.Parse(tmp[0]);
+            // this.startCity = tmp[1];
+
+            while ((line = sr.ReadLine()) != null)
+            {
+                tmp = line.Split(' '); 
+                // tmp[0] = source node; tmp[1] = destination node
+                // this.cities.Add(tmp[0], new City(tmp[0], Int32.Parse(tmp[1]))
+                // A 
+                if (this.Nodes.fin) 
+                this.Nodes
+            }
+        }
+    }
+
+
+}
 // class Graph: list_of_nodes (Collection<Node>)
 // method: constructGraph, AddEdge, getNumberOfVertices, 
 
