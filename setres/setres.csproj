@@ -5,10 +5,13 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AutomaticGraphLayout" Version="1.1.11"/>
-    <PackageReference Include="AutomaticGraphLayout.Drawing" Version="1.1.11"/>
-    <PackageReference Include="AutomaticGraphLayout.GraphViewerGDI" Version="1.1.11"/>
-    <PackageReference Include="AutomaticGraphLayout.WpfGraphControl" Version="1.1.11"/>
+    <Compile Remove="Graph.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutomaticGraphLayout" Version="1.1.11" />
+    <PackageReference Include="AutomaticGraphLayout.Drawing" Version="1.1.11" />
+    <PackageReference Include="AutomaticGraphLayout.GraphViewerGDI" Version="1.1.11" />
+    <PackageReference Include="AutomaticGraphLayout.WpfGraphControl" Version="1.1.11" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Microsoft.Msagl;
 using Microsoft.Msagl.GraphViewerGdi;
 
@@ -41,7 +42,32 @@ namespace setres
 
         private void button2_Click(object sender, EventArgs e)
         {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
 
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Open A Text File.";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+
+            MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -83,13 +109,23 @@ namespace setres
             public void createEdge(string node1, string node2){
                 Microsoft.Msagl.Drawing.Edge edge;
                 edge = this.graph.AddEdge(node1, node2);
-                edge.Attr.Color = Microsoft.Msagl.Drawing.color.Black;
+                //edge.Attr.Color = Microsoft.Msagl.Drawing.color.Black;
                 string edgeName = node1 + "-" + node2;
                 //kurang nambahin ke list of edge
 
             }
 
             
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

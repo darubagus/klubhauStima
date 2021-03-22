@@ -78,7 +78,7 @@ namespace setres
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(683, 178);
+            this.radioButton3.Location = new System.Drawing.Point(626, 178);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(60, 24);
             this.radioButton3.TabIndex = 5;
@@ -89,7 +89,7 @@ namespace setres
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(753, 178);
+            this.radioButton4.Location = new System.Drawing.Point(708, 178);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(58, 24);
             this.radioButton4.TabIndex = 6;
@@ -100,11 +100,12 @@ namespace setres
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(644, 487);
+            this.comboBox1.Location = new System.Drawing.Point(572, 484);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(169, 28);
             this.comboBox1.TabIndex = 7;
-            this.comboBox1.Text = "kntl";
+            this.comboBox1.Text = "friend1";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -113,11 +114,12 @@ namespace setres
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(151, 28);
             this.comboBox2.TabIndex = 8;
-            this.comboBox2.Text = "accountName2";
+            this.comboBox2.Text = "friend2";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(607, 121);
+            this.button2.Location = new System.Drawing.Point(629, 116);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 9;
@@ -168,7 +170,7 @@ namespace setres
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1364, 808);
+            this.ClientSize = new System.Drawing.Size(1227, 702);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);

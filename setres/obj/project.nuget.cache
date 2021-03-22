@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AW5gjgFjUuq3AxMse/z+rEEiVjRnWivWgI9bW6SaUhOzYWQHske2mSlMxxSufA9n/qOppIl0AS4sEzLS1vQE/A==",
+  "dgSpecHash": "cHCf83t8sJNnqrE/ibqrj/ufzMSbtQGLvBQxErtGZN+bDmA+qYBlTF7bY2DWCygfYsdiez61QMakbPKWrnKppw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\klubhauStima\\setres\\setres.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Documents\\college\\stima\\tubes\\tubes 2\\klubhauStima\\setres\\setres.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\automaticgraphlayout\\1.1.11\\automaticgraphlayout.1.1.11.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.11\\automaticgraphlayout.drawing.1.1.11.nupkg.sha512",
