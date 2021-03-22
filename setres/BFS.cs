@@ -10,7 +10,6 @@ namespace Stima
         private Node startNode;
         private Graph g;
         private Queue q = new Queue();
-        //private int t = 0;
         private List<Node> result = new List<Node>();
 
         private IDictionary<Node, bool> visited = new Dictionary<Node, bool>();
@@ -30,7 +29,7 @@ namespace Stima
         {
             Node V = g.Head;
             
-            while (V != null)
+            while (V != null) // foreach element in graph, assign default value
             {
                 visited.Add(V, false);
                 parentNode.Add(V, null);
@@ -41,24 +40,36 @@ namespace Stima
 
         private void BFS(Node startNode)
         {
+            // startNode visited, set the visited value with true
             visited[startNode] = true;
+            // set the level of startNode with 0
             level[startNode] = 0;
+            // add startNode into queue
             q.Enqueue(startNode);
 
-            while (!q.IsEmpty())
+            while (!q.IsEmpty())    
             {
+                // to process the node, dequeue it.
                 Node V = q.Dequeue();
+                // add the node into result list
                 result.Add(V);
 
+                // assign child with node V's neighbors
                 SuccessorNode Child = V.Trail;
-                while (Child != null)
+                // traversal all of V's neighbors
+                while (Child != null)           
                 {
-                    if (!visited[Child.Succ])
+                    // if the succ haven't visited, visit
+                    if (!visited[Child.Succ])   
                     {
+                        // assign visited with true
                         visited[Child.Succ] = true;
+                        // assign V as the parent
                         parentNode[Child.Succ] = V;
+                        // assign the level with the parent's level + 1
                         level[Child.Succ] = level[V] + 1;
-                        q.Enqueue(Child.Succ);
+                        // enqueue
+                        q.Enqueue(Child.Succ);                  
                     }
                     Child = Child.Next;
                 }
@@ -75,12 +86,14 @@ namespace Stima
             List<Node> path = new List<Node>();
             Node V = g.SearchNode(EndNode);
 
-            while (V != null)  // for each vertex in g
+            // for each vertex in g
+            while (V != null)  
             {
+                // searching the ancestor path from the EndNode
                 path.Add(V);
                 V = parentNode[V];
             }
-
+            // the path need to be reversed
             return path;
         }
 
@@ -111,51 +124,6 @@ namespace Stima
             foreach (Node n in path)
             {
                 Console.Write("{0} ", n.Name);
-            }
-            Console.WriteLine();
-        }
-
-        public void PrintVisited()
-        {
-            foreach (KeyValuePair<Node, bool> kvp in visited)
-            {
-                Console.WriteLine("Key: {0}, Value: {1}", kvp.Key.Name, kvp.Value);
-            }
-        }
-
-        public void PrintLevel()
-        {
-            foreach (KeyValuePair<Node, int> kvp in level)
-            {
-                Console.WriteLine("Key: {0}, Value: [{1}]", kvp.Key.Name, string.Join(", ", kvp.Value));
-            }
-        }
-
-
-
-        public void PrintParent()
-        {
-            foreach (KeyValuePair<Node, Node> kvp in parentNode)
-            {
-                if (kvp.Value == null)
-                {
-                    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key.Name, kvp.Value);
-                }
-                else
-                {
-                    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key.Name, kvp.Value.Name);
-                }
-
-            }
-
-        }
-
-        public void PrintResult()
-        {
-            foreach (Node node in result)
-            {
-                Console.Write("{0} ", node.Name);
-
             }
             Console.WriteLine();
         }

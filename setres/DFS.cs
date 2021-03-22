@@ -28,39 +28,42 @@ namespace Stima
         //Methods
         private void InitializeDFS()
         {
+            // initalization of DFS
             Node V = g.Head;
 
-            while (V != null)
+            // foreach element in graph, assign default value
+            while (V != null) 
             {
                 int[] tempInterval = new int[2] { -1, -1 }; // intialize interval with default value of {-1, -1}
                 visited.Add(V, 0); // initialize visited dictionary with startNode and 0 value
                 parentNode.Add(V, null);
                 interval.Add(V, tempInterval); // initialize start vertex's level with templevel
+
                 V = V.Next;
             }
         }
 
         private void DFS(Node startNode)
         {
-            visited[startNode] = 1;
-            Interval[startNode][0] = t;
+            visited[startNode] = 1; // startNode visited, set the visited value to 1
+            Interval[startNode][0] = t; // time when the startNode visited for the first time
 
-            result.Add(startNode);
+            result.Add(startNode); // add startNode to result list
             t++;
 
-            SuccessorNode TrailNode = startNode.Trail;
-            while (TrailNode != null)
+            SuccessorNode TrailNode = startNode.Trail;  // set trailNode with startNode's successorNode
+            while (TrailNode != null) // traversal until all of the startNode's visited
             {
-                if (visited[TrailNode.Succ] == 0)
+                if (visited[TrailNode.Succ] == 0)   // if the succ of trailNode haven't visited
                 {
-                    parentNode[TrailNode.Succ] = startNode;
-                    DFS(TrailNode.Succ);
+                    parentNode[TrailNode.Succ] = startNode; // set the trailNode's succ with startNode
+                    DFS(TrailNode.Succ);    // Recursively call DFS until reaching the leaf
                 }
                 TrailNode = TrailNode.Next;
             }
 
-            visited[startNode] = 2;
-            interval[startNode][1] = t;
+            visited[startNode] = 2; // Backtrack
+            interval[startNode][1] = t; // time when the startNode visited for the second time
             t++;
         }
 
@@ -76,10 +79,11 @@ namespace Stima
 
             while (V != null)  // for each vertex in g
             {
+                // searching the ancestor path from the EndNode
                 path.Add(V);
                 V = parentNode[V];
             }
-
+            // the path need to be reversed
             return path;
         }
 
