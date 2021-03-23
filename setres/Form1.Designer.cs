@@ -30,162 +30,178 @@ namespace setres
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.radioButtonDFS = new System.Windows.Forms.RadioButton();
+            this.radioButtonBFS = new System.Windows.Forms.RadioButton();
+            this.comboBoxChooseAccount = new System.Windows.Forms.ComboBox();
+            this.comboBoxExploreFriends = new System.Windows.Forms.ComboBox();
+            this.buttonSubmit = new System.Windows.Forms.Button();
+            this.labelAlgo = new System.Windows.Forms.Label();
+            this.labelGraphFile = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.labelChooseAccount = new System.Windows.Forms.Label();
+            this.labelExploreFriends = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonBrowse
             // 
-            this.button1.Location = new System.Drawing.Point(592, 592);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonBrowse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonBrowse.Location = new System.Drawing.Point(453, 125);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(94, 29);
+            this.buttonBrowse.TabIndex = 1;
+            this.buttonBrowse.Text = "Browse";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.button1_Click);
+            //
+            // radioButtonDFS
             // 
-            // radioButton1
+            this.radioButtonDFS.AutoSize = true;
+            this.radioButtonDFS.BackColor = System.Drawing.Color.LightGray;
+            this.radioButtonDFS.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonDFS.Location = new System.Drawing.Point(453, 178);
+            this.radioButtonDFS.Name = "radioButtonDFS";
+            this.radioButtonDFS.Size = new System.Drawing.Size(56, 24);
+            this.radioButtonDFS.TabIndex = 5;
+            this.radioButtonDFS.TabStop = true;
+            this.radioButtonDFS.Text = "DFS";
+            this.radioButtonDFS.UseVisualStyleBackColor = false;
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(608, 654);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(17, 16);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            // radioButtonBFS
             // 
-            // radioButton2
+            this.radioButtonBFS.AutoSize = true;
+            this.radioButtonBFS.BackColor = System.Drawing.Color.LightGray;
+            this.radioButtonBFS.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonBFS.Location = new System.Drawing.Point(535, 178);
+            this.radioButtonBFS.Name = "radioButtonBFS";
+            this.radioButtonBFS.Size = new System.Drawing.Size(54, 24);
+            this.radioButtonBFS.TabIndex = 6;
+            this.radioButtonBFS.TabStop = true;
+            this.radioButtonBFS.Text = "BFS";
+            this.radioButtonBFS.UseVisualStyleBackColor = false;
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(608, 728);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(17, 16);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // comboBoxChooseAccount
             // 
-            // radioButton3
+            this.comboBoxChooseAccount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxChooseAccount.FormattingEnabled = true;
+            this.comboBoxChooseAccount.Location = new System.Drawing.Point(453, 485);
+            this.comboBoxChooseAccount.Name = "comboBoxChooseAccount";
+            this.comboBoxChooseAccount.Size = new System.Drawing.Size(169, 28);
+            this.comboBoxChooseAccount.TabIndex = 7;
+            this.comboBoxChooseAccount.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(626, 178);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(60, 24);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "DFS";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            // comboBoxExploreFriends
             // 
-            // radioButton4
+            this.comboBoxExploreFriends.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxExploreFriends.FormattingEnabled = true;
+            this.comboBoxExploreFriends.Location = new System.Drawing.Point(453, 535);
+            this.comboBoxExploreFriends.Name = "comboBoxExploreFriends";
+            this.comboBoxExploreFriends.Size = new System.Drawing.Size(169, 28);
+            this.comboBoxExploreFriends.TabIndex = 8;
+            this.comboBoxExploreFriends.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(708, 178);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(58, 24);
-            this.radioButton4.TabIndex = 6;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "BFS";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            // buttonSubmit
             // 
-            // comboBox1
+            this.buttonSubmit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSubmit.Location = new System.Drawing.Point(422, 595);
+            this.buttonSubmit.Name = "buttonSubmit";
+            this.buttonSubmit.Size = new System.Drawing.Size(106, 34);
+            this.buttonSubmit.TabIndex = 9;
+            this.buttonSubmit.Text = "Submit";
+            this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.button2_Click);
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(572, 484);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 28);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.Text = "friend1";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // labelAlgo
             // 
-            // comboBox2
+            this.labelAlgo.AutoSize = true;
+            this.labelAlgo.BackColor = System.Drawing.Color.LightGray;
+            this.labelAlgo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAlgo.Location = new System.Drawing.Point(345, 178);
+            this.labelAlgo.Name = "labelAlgo";
+            this.labelAlgo.Size = new System.Drawing.Size(95, 23);
+            this.labelAlgo.TabIndex = 11;
+            this.labelAlgo.Text = "Algorithm: ";
+            this.labelAlgo.Click += new System.EventHandler(this.label1_Click);
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(572, 541);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(151, 28);
-            this.comboBox2.TabIndex = 8;
-            this.comboBox2.Text = "friend2";
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // labelGraphFile
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(629, 116);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Browse";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(518, 178);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Algorithm: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(518, 125);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Graph File: ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.labelGraphFile.AutoSize = true;
+            this.labelGraphFile.BackColor = System.Drawing.Color.LightGray;
+            this.labelGraphFile.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelGraphFile.Location = new System.Drawing.Point(345, 125);
+            this.labelGraphFile.Name = "labelGraphFile";
+            this.labelGraphFile.Size = new System.Drawing.Size(100, 25);
+            this.labelGraphFile.TabIndex = 12;
+            this.labelGraphFile.Text = "Graph File: ";
+            this.labelGraphFile.Click += new System.EventHandler(this.label2_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(410, 208);
+            this.richTextBox1.Location = new System.Drawing.Point(237, 208);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(513, 260);
             this.richTextBox1.TabIndex = 13;
             this.richTextBox1.Text = "";
             // 
-            // label3
+            // labelTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(594, 56);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Klubhaus";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.BackColor = System.Drawing.Color.LightGray;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelTitle.Location = new System.Drawing.Point(419, 46);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(138, 38);
+            this.labelTitle.TabIndex = 14;
+            this.labelTitle.Text = "Klubhaus";
+            this.labelTitle.Click += new System.EventHandler(this.label3_Click_1);
+            // 
+            // labelChooseAccount
+            // 
+            this.labelChooseAccount.AutoSize = true;
+            this.labelChooseAccount.BackColor = System.Drawing.Color.LightGray;
+            this.labelChooseAccount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelChooseAccount.Location = new System.Drawing.Point(249, 485);
+            this.labelChooseAccount.Name = "labelChooseAccount";
+            this.labelChooseAccount.Size = new System.Drawing.Size(144, 23);
+            this.labelChooseAccount.TabIndex = 15;
+            this.labelChooseAccount.Text = "Choose Account: ";
+            this.labelChooseAccount.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // labelExploreFriends
+            // 
+            this.labelExploreFriends.AutoSize = true;
+            this.labelExploreFriends.BackColor = System.Drawing.Color.LightGray;
+            this.labelExploreFriends.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelExploreFriends.Location = new System.Drawing.Point(249, 540);
+            this.labelExploreFriends.Name = "labelExploreFriends";
+            this.labelExploreFriends.Size = new System.Drawing.Size(175, 23);
+            this.labelExploreFriends.TabIndex = 16;
+            this.labelExploreFriends.Text = "Explore Friends With: ";
+            this.labelExploreFriends.Click += new System.EventHandler(this.label5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1227, 702);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1021, 641);
+            this.Controls.Add(this.labelExploreFriends);
+            this.Controls.Add(this.labelChooseAccount);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelGraphFile);
+            this.Controls.Add(this.labelAlgo);
+            this.Controls.Add(this.buttonSubmit);
+            this.Controls.Add(this.comboBoxExploreFriends);
+            this.Controls.Add(this.comboBoxChooseAccount);
+            this.Controls.Add(this.radioButtonBFS);
+            this.Controls.Add(this.radioButtonDFS);
+            this.Controls.Add(this.buttonBrowse);
             this.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Klubhaus";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,18 +209,18 @@ namespace setres
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonBrowse;
+        private System.Windows.Forms.RadioButton radioButtonDFS;
+        private System.Windows.Forms.RadioButton radioButtonBFS;
+        private System.Windows.Forms.ComboBox comboBoxChooseAccount;
+        private System.Windows.Forms.ComboBox comboBoxExploreFriends;
+        private System.Windows.Forms.Button buttonSubmit;
+        private System.Windows.Forms.Label labelAlgo;
+        private System.Windows.Forms.Label labelGraphFile;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelChooseAccount;
+        private System.Windows.Forms.Label labelExploreFriends;
     }
 }
 
