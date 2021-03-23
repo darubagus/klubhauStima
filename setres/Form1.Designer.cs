@@ -53,7 +53,7 @@ namespace setres
             this.buttonBrowse.TabIndex = 1;
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
-            this.buttonBrowse.Click += new System.EventHandler(this.button1_Click);
+            this.buttonBrowse.Click += new System.EventHandler(this.button2_Click);
             //
             // radioButtonDFS
             // 
@@ -110,7 +110,7 @@ namespace setres
             this.buttonSubmit.TabIndex = 9;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
-            this.buttonSubmit.Click += new System.EventHandler(this.button2_Click);
+            this.buttonSubmit.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelAlgo
             // 
@@ -199,7 +199,7 @@ namespace setres
             this.Controls.Add(this.radioButtonBFS);
             this.Controls.Add(this.radioButtonDFS);
             this.Controls.Add(this.buttonBrowse);
-            this.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Form1";
             this.Text = "Klubhaus";
             this.Load += new System.EventHandler(this.Form1_Load);

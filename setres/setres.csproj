@@ -5,7 +5,11 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="BFS.cs" />
+    <Compile Remove="DFS.cs" />
     <Compile Remove="Graph.cs" />
+    <Compile Remove="MutualFriend.cs" />
+    <Compile Remove="Queue.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutomaticGraphLayout" Version="1.1.11" />
