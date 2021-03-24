@@ -8,13 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 using Microsoft.Msagl;
 using Microsoft.Msagl.GraphViewerGdi;
+using Stima;
 
 namespace setres
 {
     public partial class Form1 : Form
     {
+        Microsoft.Msagl.Drawing.Graph graph;
+        String startAccount;
+        String destAccount;
+        String[] acc;
+        Graph networkGraph;
+        BreadthFirstSearch bfs;
+        DepthFirstSearch dfs;
+        MutualFriend friendRec;
+        List<string> people;
+        List<Node> bfsPath;
+        List<Node> dfsPath;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +42,31 @@ namespace setres
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            startAccount = comboBoxChooseAccount.SelectedItem.ToString();
+            destAccount = comboBoxExploreFriends.SelectedItem.ToString();
+            networkGraph = new Graph(startAccount);
+
+            if (radioButtonBFS.Checked)
+            {
+                bfs = new BreadthFirstSearch(networkGraph, startAccount); 
+                bfs.RunBFS();
+                bfsPath = bfs.Path(destAccount); 
+                bfsPath.Reverse();
+                bfs.PrintPath(bfsPath); // ini bakal ngeprint di console doang. baru bisa dipake kalo console.WriteLine di implementasinya diganti jd Debug.WriteLine
+            }
+
+            if (radioButtonDFS.Checked)
+            {
+                dfs = new DepthFirstSearch(networkGraph, startAccount); 
+                dfs.RunDFS();
+                dfsPath = dfs.Path(destAccount); 
+                dfsPath.Reverse();
+                dfs.PrintPath(dfsPath); // ini juga ngeprint di console doang. baru bisa dipake kalo console.WriteLine di implementasinya diganti jd Debug.WriteLine
+            }
+
+            friendRec = new MutualFriend(networkGraph, startAccount);  
+            friendRec.FindMutualFriend();
+            friendRec.PrintResult();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -49,9 +88,10 @@ namespace setres
                         //Read the contents of the file
                         string[] fileContent = File.ReadAllLines(filePath);
 
-                        // debugzz
-                        //string testShow = string.Join(Environment.NewLine, fileContent);
-                        //MessageBox.Show(testShow, filePath);
+                        fillCombo(fileContent);
+
+                        drawGraph(fileContent);
+
                     }
                     catch (IOException)
                     {
@@ -61,6 +101,53 @@ namespace setres
             }
         }
 
+        private void fillCombo (string[] input)
+        {
+            var tmp = new List<string>();
+            string[] lines;
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                lines = input[i].Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string line in lines)
+                {
+                    tmp.Add(line);
+                }
+            }
+
+            people = tmp.Distinct().ToList();
+            people.Sort();
+
+            foreach(string item in people)
+            {
+                comboBoxChooseAccount.Items.Add(item);
+            }
+
+        }
+
+        private void drawGraph (string[] input)
+        {
+            //create a viewer object 
+            GViewer viewer = new GViewer();
+            graph = new Microsoft.Msagl.Drawing.Graph();
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                //create the graph content 
+                string[] lines2 = input[i].Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
+                var edge = graph.AddEdge(lines2[0], lines2[1]);
+                edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
+
+            }
+
+            //bind the graph to the viewer 
+            viewer.Graph = graph;
+            viewer.Name = "view";
+            viewer.Dock = DockStyle.Fill;
+
+            panelGraph.Controls.Add(viewer);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -71,37 +158,17 @@ namespace setres
 
         }
 
-        public class Graph
-        {
-            //create a form 
-            private System.Windows.Forms.Form form = new System.Windows.Forms.Form();
-            
-            //create a viewer object 
-            private Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
-            
-            //create a graph object 
-            private Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph();
-            // create list of edge representation
-            // kira2 enakan pake list atau dictionary ya?
-            
-            // kayanya enakan pake dictionary sih
-            
-            // create Edge
-            public void createEdge(string node1, string node2){
-                Microsoft.Msagl.Drawing.Edge edge;
-                edge = this.graph.AddEdge(node1, node2);
-                //edge.Attr.Color = Microsoft.Msagl.Drawing.color.Black;
-                string edgeName = node1 + "-" + node2;
-                //kurang nambahin ke list of edge
-
-            }
-
-            
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            startAccount = comboBoxChooseAccount.SelectedItem.ToString();
 
+            foreach (string item in people)
+            {
+                if (item != startAccount)
+                {
+                    comboBoxExploreFriends.Items.Add(item);
+                }
+            }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
