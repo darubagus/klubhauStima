@@ -106,5 +106,25 @@ namespace Stima
                 }
             }
         }
+
+        public string PrintHasil()
+        {
+            FindMutualFriend();
+            string hasil = "";
+            foreach (KeyValuePair<Node, List<Node>> Node in result)
+            {
+                hasil += "Nama Akun : " + Node.Key.Name + "\n";
+                hasil += Node.Value.Count.ToString() + " mutual friend(s) :" + "\n";
+                foreach (Node mutualFriend in Node.Value)
+                {
+                    hasil += mutualFriend.Name + "\n";
+                }
+
+                hasil += "\n";
+            }
+
+            return hasil;
+        }
+
     }
 }

@@ -119,49 +119,16 @@ namespace Stima
             Console.WriteLine();
         }
 
-        public void PrintVisited()
+        public string PrintPathString(List<Node> path)
         {
-            foreach (KeyValuePair<Node, int> kvp in visited)
+            string hasil = "";
+            foreach (Node n in path)
             {
-                Console.WriteLine("Key: {0}, Value: {1}", kvp.Key.Name, kvp.Value);
+                hasil += n.Name + " ";
             }
-        }
+            hasil += "\n";
 
-        public void PrintInterval()
-        {
-            foreach (KeyValuePair<Node, int[]> kvp in interval)
-            {
-                Console.WriteLine("Key: {0}, Value: [{1}]", kvp.Key.Name, string.Join(", ", kvp.Value));
-            }
-        }
-
-
-
-        public void PrintParent()
-        {
-            foreach (KeyValuePair<Node, Node> kvp in parentNode)
-            {
-                if (kvp.Value == null)
-                {
-                    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key.Name, kvp.Value);
-                }
-                else
-                {
-                    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key.Name, kvp.Value.Name);
-                }
-
-            }
-
-        }
-
-        public void PrintResult()
-        {
-            foreach (Node node in result)
-            {
-                Console.Write("{0} ", node.Name);
-
-            }
-            Console.WriteLine();
+            return hasil;
         }
 
 
