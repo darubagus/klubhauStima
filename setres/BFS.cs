@@ -128,6 +128,18 @@ namespace Stima
             Console.WriteLine();
         }
 
+        public string PrintStringBFS(List<Node> path)
+        {
+            string hasil = "";
+            foreach (Node n in path)
+            {
+                hasil += n.Name + " ";
+            }
+            hasil += "\n";
+
+            return hasil;
+        }
+
     }
 
 }

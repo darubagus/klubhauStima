@@ -191,6 +191,7 @@ namespace setres
             this.textBoxResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxResult.Size = new System.Drawing.Size(622, 130);
             this.textBoxResult.TabIndex = 18;
+            this.textBoxResult.TextChanged += new System.EventHandler(this.textBoxResult_TextChanged);
             // 
             // labelResults
             // 

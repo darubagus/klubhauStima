@@ -20,7 +20,7 @@ namespace setres
         Microsoft.Msagl.Drawing.Graph graph;
         String startAccount;
         String destAccount;
-        String[] acc;
+        String[] fileContent;
         Graph networkGraph;
         BreadthFirstSearch bfs;
         DepthFirstSearch dfs;
@@ -45,6 +45,34 @@ namespace setres
             startAccount = comboBoxChooseAccount.SelectedItem.ToString();
             destAccount = comboBoxExploreFriends.SelectedItem.ToString();
             networkGraph = new Graph(startAccount);
+            List<string> acc = new List<string>();
+
+            foreach (string item in people)
+            {
+                if (item != startAccount)
+                {
+                    acc.Add(item);
+                }
+            }
+
+            String[] account = acc.ToArray();
+
+            for (int i = 0; i < account.Length; i++)
+            {
+                networkGraph.InsertNode(account[i]);
+            }
+
+            for (int i = 1; i < fileContent.Length; i++)
+            {
+                int j = 0;
+
+                while (fileContent[i][j] != ' ')
+                {
+                    j++;
+                }
+
+                networkGraph.InsertEdge(fileContent[i].Substring(0, j), fileContent[i].Substring(j + 1, fileContent[i].Length - j - 1));
+            }
 
             if (radioButtonBFS.Checked)
             {
@@ -52,7 +80,8 @@ namespace setres
                 bfs.RunBFS();
                 bfsPath = bfs.Path(destAccount); 
                 bfsPath.Reverse();
-                bfs.PrintPath(bfsPath); // ini bakal ngeprint di console doang. baru bisa dipake kalo console.WriteLine di implementasinya diganti jd Debug.WriteLine
+                string resultBFS = bfs.PrintStringBFS(bfsPath);
+                textBoxResult.Text = resultBFS;
             }
 
             if (radioButtonDFS.Checked)
@@ -61,12 +90,16 @@ namespace setres
                 dfs.RunDFS();
                 dfsPath = dfs.Path(destAccount); 
                 dfsPath.Reverse();
-                dfs.PrintPath(dfsPath); // ini juga ngeprint di console doang. baru bisa dipake kalo console.WriteLine di implementasinya diganti jd Debug.WriteLine
+                string resultDFS = dfs.PrintStringDFS(dfsPath); 
+                textBoxResult.Text = resultDFS;
+
             }
 
             friendRec = new MutualFriend(networkGraph, startAccount);  
             friendRec.FindMutualFriend();
-            friendRec.PrintResult();
+            string result1 = friendRec.PrintHasil();
+            //textBoxResult.Multiline = true;
+            textBoxResult.Text = result1;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,7 +119,7 @@ namespace setres
                         string filePath = openFileDialog.FileName;
 
                         //Read the contents of the file
-                        string[] fileContent = File.ReadAllLines(filePath);
+                        fileContent = File.ReadAllLines(filePath);
 
                         fillCombo(fileContent);
 
@@ -164,6 +197,11 @@ namespace setres
 
             foreach (string item in people)
             {
+                comboBoxExploreFriends.Items.Remove(item);
+            }
+
+            foreach (string item in people)
+            {
                 if (item != startAccount)
                 {
                     comboBoxExploreFriends.Items.Add(item);
@@ -192,6 +230,11 @@ namespace setres
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxResult_TextChanged(object sender, EventArgs e)
         {
 
         }

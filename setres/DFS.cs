@@ -119,7 +119,7 @@ namespace Stima
             Console.WriteLine();
         }
 
-        public string PrintPathString(List<Node> path)
+        public string PrintStringDFS(List<Node> path)
         {
             string hasil = "";
             foreach (Node n in path)
