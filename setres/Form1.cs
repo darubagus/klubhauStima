@@ -32,32 +32,33 @@ namespace setres
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Title = "Open A Text File.";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
+                    try
                     {
-                        fileContent = reader.ReadToEnd();
+                        //Get the path of specified file
+                        string filePath = openFileDialog.FileName;
+
+                        //Read the contents of the file
+                        string[] fileContent = File.ReadAllLines(filePath);
+
+                        // debugzz
+                        //string testShow = string.Join(Environment.NewLine, fileContent);
+                        //MessageBox.Show(testShow, filePath);
+                    }
+                    catch (IOException)
+                    {
+
                     }
                 }
             }
-
-            MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -119,6 +120,11 @@ namespace setres
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
