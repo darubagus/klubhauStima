@@ -96,9 +96,9 @@ namespace setres
             }
 
             friendRec = new MutualFriend(networkGraph, startAccount);  
-            friendRec.FindMutualFriend();
+            //friendRec.FindMutualFriend();
             string result1 = friendRec.PrintHasil();
-            //textBoxResult.Multiline = true;
+            textBoxResult.Multiline = true;
             textBoxResult.Text = result1;
         }
 

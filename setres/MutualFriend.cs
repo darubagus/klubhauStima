@@ -113,14 +113,14 @@ namespace Stima
             string hasil = "";
             foreach (KeyValuePair<Node, List<Node>> Node in result)
             {
-                hasil += "Nama Akun : " + Node.Key.Name + "\n";
-                hasil += Node.Value.Count.ToString() + " mutual friend(s) :" + "\n";
+                hasil += "Nama Akun : " + Node.Key.Name + "\r\n";
+                hasil += Node.Value.Count.ToString() + " mutual friend(s) :" + "\r\n";
                 foreach (Node mutualFriend in Node.Value)
                 {
-                    hasil += mutualFriend.Name + "\n";
+                    hasil += mutualFriend.Name + "\r\n";
                 }
 
-                hasil += "\n";
+                hasil += "\r\n";
             }
 
             return hasil;

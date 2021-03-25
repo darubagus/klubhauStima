@@ -126,7 +126,7 @@ namespace Stima
             {
                 hasil += n.Name + " ";
             }
-            hasil += "\n";
+            hasil += "\r\n";
 
             return hasil;
         }
