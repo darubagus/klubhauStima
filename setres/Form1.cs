@@ -47,6 +47,9 @@ namespace setres
 
         private void button1_Click(object sender, EventArgs e)
         {
+            startAccount = "";
+            destAccount = "";
+
             if (comboBoxChooseAccount.SelectedIndex == -1)
             {
                 MessageBox.Show("Choose an account to begin with");
@@ -130,6 +133,8 @@ namespace setres
                 textBoxResult.Multiline = true;
                 textBoxResult.Text = resultFriend;
             }
+
+            colorGraph(fileContent, startAccount, destAccount);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -218,7 +223,6 @@ namespace setres
                 var edge = graph.AddEdge(content[0], content[1]);
                 edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
                 edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
-
             }
 
             //bind the graph to the viewer 
@@ -240,7 +244,7 @@ namespace setres
             panelGraph.Controls.Add(viewer);
         }
 
-        private void colorGraph (string[] input, string startAcc)
+        private void colorGraph (string[] input, string start, string dest)
         {
             //create a viewer object 
             GViewer viewer = new GViewer();
@@ -253,9 +257,22 @@ namespace setres
                 var edge = graph1.AddEdge(content[0], content[1]);
                 edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
                 edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
-
+                graph1.FindNode(start).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Aquamarine;
+                //if (dest != "")
+                //{
+                //   graph1.FindNode(dest).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Blue;
+                //}
+                //graph1.FindNode(dest).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Blue;
             }
+
+            viewer.Graph = graph1;
+            viewer.Name = "viewer";
+            viewer.Dock = DockStyle.Fill;
+
+            panelGraph.Controls.Clear();
+            panelGraph.Controls.Add(viewer);
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
