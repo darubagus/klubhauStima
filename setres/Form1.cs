@@ -125,9 +125,10 @@ namespace setres
             {
                 friendRec = new MutualFriend(networkGraph, startAccount);
                 //friendRec.FindMutualFriend();
-                string result1 = friendRec.PrintHasil();
+                string resultFriend = "Daftar rekomendasi teman untuk akun " + startAccount + "\r\n";
+                resultFriend += friendRec.PrintHasil();
                 textBoxResult.Multiline = true;
-                textBoxResult.Text = result1;
+                textBoxResult.Text = resultFriend;
             }
         }
 
