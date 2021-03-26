@@ -97,13 +97,22 @@ namespace setres
                 {
                     bfs = new BreadthFirstSearch(networkGraph, startAccount);
                     bfs.RunBFS();
-                    bfsPath = bfs.Path(destAccount);
-                    int level = bfs.PrintLevel(destAccount);    
+                    bfsPath = bfs.Path(destAccount);   
                     bfsPath.Reverse();
+                    int level = bfs.PrintLevel(destAccount);
                     string resultBFS = "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
-                    resultBFS += level.ToString() + "th degree connection \r\n";
-                    resultBFS += bfs.PrintStringBFS(bfsPath);
+                    if (level != -1)
+                    {
+                        resultBFS += level.ToString() + "th degree connection \r\n";
+                        resultBFS += dfs.PrintStringDFS(dfsPath);
+                    }
+                    else
+                    {
+                        resultBFS += "Tidak ada jalur koneksi yang tersedia \r\n";
+                        resultBFS += "Anda harus memulai koneksi baru itu sendiri. \r\n";
+                    }
                     textBoxResult.Text = resultBFS;
+                    //colorGraph(fileContent, bfsPath);
                 }
 
                 else if (radioButtonDFS.Checked)
@@ -111,12 +120,22 @@ namespace setres
                     dfs = new DepthFirstSearch(networkGraph, startAccount);
                     dfs.RunDFS();
                     dfsPath = dfs.Path(destAccount);
-                    int degree = dfs.PrintInterval(destAccount);
                     dfsPath.Reverse();
-                    string resultDFS = "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
-                    resultDFS += degree.ToString() + "th degree connection \r\n";
-                    resultDFS += dfs.PrintStringDFS(dfsPath);
+                    int degree = dfs.PrintInterval(destAccount);
+                    string resultDFS = "";
+                    resultDFS += "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
+                    if (degree != -1)
+                    {
+                        resultDFS += degree.ToString() + "th degree connection \r\n";
+                        resultDFS += dfs.PrintStringDFS(dfsPath);
+                    }
+                    else
+                    {
+                        resultDFS += "Tidak ada jalur koneksi yang tersedia \r\n";
+                        resultDFS += "Anda harus memulai koneksi baru itu sendiri. \r\n";
+                    }
                     textBoxResult.Text = resultDFS;
+                    //colorGraph(fileContent, dfsPath);
 
                 }
                 else
@@ -132,16 +151,17 @@ namespace setres
                 resultFriend += friendRec.PrintHasil();
                 textBoxResult.Multiline = true;
                 textBoxResult.Text = resultFriend;
+                MessageBox.Show(resultFriend);
             }
 
-            colorGraph(fileContent, startAccount, destAccount);
+            //colorGraph(fileContent, startAccount, destAccount);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Title = "Open A Text File.";
+                openFileDialog.Title = "Pilih Test Case";
                 openFileDialog.Filter = "txt files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
@@ -244,7 +264,7 @@ namespace setres
             panelGraph.Controls.Add(viewer);
         }
 
-        private void colorGraph (string[] input, string start, string dest)
+        private void colorGraph (string[] input, List<Node> path)
         {
             //create a viewer object 
             GViewer viewer = new GViewer();
@@ -257,7 +277,13 @@ namespace setres
                 var edge = graph1.AddEdge(content[0], content[1]);
                 edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
                 edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
-                graph1.FindNode(start).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Aquamarine;
+                //foreach (Node n in path)
+                //{
+                //    string tmp = n.Name;
+                //    //MessageBox.Show(n.Name);
+                //    graph1.FindNode(tmp).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Aqua;
+                //}
+                //graph1.FindNode(path.First().Name).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Aquamarine;
                 //if (dest != "")
                 //{
                 //   graph1.FindNode(dest).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Blue;
