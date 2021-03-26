@@ -46,17 +46,26 @@ Nama akun: A dan H
 A → B → E → H
 ```
 
-TODO jelasin cara kerja
+## Cara Kerja
+### *Breadth First Search*
+Breadth First Search dilakukan dengan melakukan traversal secara konsentris. Hal ini dilakukan dengan menelusuri semua simpul yang bertetanggaan dengan simpul awal, lalu semua simpul yang belum dikunjungi yang berjarak dua sisi dari simpul awal, dan seterusnya hingga semua simpul yang dapat terhubung dengan simpul awal dikunjungi.<br/>
+
+Breadth First Search lebih mudah dilakukan dengan menggunakan queue. Queue diinisialisasi dengan simpul awal yang ditandai sudah dikunjungi. Pada setiap iterasi, algoritma mengidentifikasi semua simpul yang belum dikunjungi dan bertetanggaan dengan simpul pada antrian pertama pada queue, mengidentifikasi simpul-simpul tersebut dengan status sudah dikunjungi, dan melakukan enqueue. Lalu simpul pada antrian pertama di-dequeue.<br/>
+
+### *Depth First Search*
+Depth First Search dilakukan dengan melakukan traversal yang bermulai di simpul awal. Pada setiap iterasi, algoritma mengunjungi sebuah simpul yang bertetanggaan dengan simpul awal (jika terdapat beberapa simpul, pemilihan simpul disesuaikan dengan struktur data dari graph). Lalu penelusuran dilanjutkan pada simpul yang bertetanggaan dengan simpul tersebut hingga mencapai dead end. Pada saat tersebut, algoritma melakukan backtracking sebanyak satu edge ke simpul sebelumnya dan menelusuri kembali simpul yang belum dikunjungi.<br/>
 
 
 ## Requirements
 * .NET Framework 3.1 or higher
+* Windows powered machine
 * [Microsoft Automatic Graph Layout (MSAGL) library](https://github.com/microsoft/automatic-graph-layout)
 * (Recommended) Windows 10 operating system
 * (Recommended) Visual Studio IDE
 
+
 ## Instalasi & Cara Penggunaan
-* Clone repositori:
+* Clone repository:
 ```
 git clone https://github.com/darubagus/klubhauStima.git
 ```
