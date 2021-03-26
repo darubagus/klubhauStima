@@ -147,6 +147,32 @@ namespace Stima
                 Psucc.nPred += 1; // add neighbor counter
             }
 
+            // for the opposite
+            Pprec = SearchNode(destination);        // search sourceNode
+            Psucc = SearchNode(source);   // search destinationNode
+            SuccessorNode Tn;
+
+            if (SearchEdge(destination, source) == null) // if the edge doesn't exist
+            {
+                Tn = Pprec.Trail; // assign T with successorNode of sourceNode
+
+                if (Tn == null) // if the sourceNode doesn't have any neighbor
+                {
+                    SuccessorNode temp = new SuccessorNode(Psucc);
+                    Pprec.Trail = temp;
+                }
+                else
+                {
+                    while (Tn.Next != null) // traversal until the last node of sourceNode's successorNode
+                    {
+                        Tn = Tn.Next;
+                    }
+                    SuccessorNode temp = new SuccessorNode(Psucc);
+                    Tn.Next = temp;
+                }
+                Psucc.nPred += 1; // add neighbor counter
+            }
+
         }
 
         public Node SearchNode(string X)
