@@ -133,6 +133,19 @@ namespace Stima
             return hasil;
         }
 
+        public int PrintInterval(string EndNode)
+        {
+            foreach (KeyValuePair<Node, int[]> kvp in interval)
+            {
+                if (kvp.Key.Name == EndNode)
+                {
+                    return kvp.Value[0];
+                }
+            }
+            return 0;
+        }
+
+
 
     }
 }

@@ -142,6 +142,18 @@ namespace Stima
             return hasil;
         }
 
+        public int PrintLevel(string EndNode)
+        {
+            foreach (KeyValuePair<Node, int> kvp in level)
+            {
+                if (kvp.Key.Name == EndNode)
+                {
+                    return kvp.Value;
+                }
+            }
+            return 0;
+        }
+
     }
 
 }
