@@ -17,7 +17,6 @@ namespace setres
 {
     public partial class Form1 : Form
     {
-        Microsoft.Msagl.Drawing.Graph graph;
         String startAccount;
         String destAccount;
         String[] fileContent;
@@ -28,6 +27,7 @@ namespace setres
         List<string> people;
         List<Node> bfsPath;
         List<Node> dfsPath;
+        Microsoft.Msagl.Drawing.Graph graph;
 
 
         public Form1()
@@ -37,13 +37,24 @@ namespace setres
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            comboBoxChooseAccount.Enabled = false;
+            comboBoxExploreFriends.Enabled = false;
+            radioButtonBFS.Enabled = false;
+            radioButtonDFS.Enabled = false;
+            buttonSubmit.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            startAccount = comboBoxChooseAccount.SelectedItem.ToString();
-            destAccount = comboBoxExploreFriends.SelectedItem.ToString();
+            if (comboBoxChooseAccount.SelectedIndex == -1)
+            {
+                MessageBox.Show("Choose an account to begin with");
+            }
+            else
+            {
+                startAccount = comboBoxChooseAccount.SelectedItem.ToString();
+            }
+
             networkGraph = new Graph(startAccount);
             List<string> acc = new List<string>();
 
@@ -74,32 +85,45 @@ namespace setres
                 networkGraph.InsertEdge(fileContent[i].Substring(0, j), fileContent[i].Substring(j + 1, fileContent[i].Length - j - 1));
             }
 
-            if (radioButtonBFS.Checked)
+            if (comboBoxExploreFriends.SelectedIndex != -1)
             {
-                bfs = new BreadthFirstSearch(networkGraph, startAccount); 
-                bfs.RunBFS();
-                bfsPath = bfs.Path(destAccount); 
-                bfsPath.Reverse();
-                string resultBFS = bfs.PrintStringBFS(bfsPath);
-                textBoxResult.Text = resultBFS;
-            }
+                destAccount = comboBoxExploreFriends.SelectedItem.ToString();
 
-            if (radioButtonDFS.Checked)
+                if (radioButtonBFS.Checked)
+                {
+                    bfs = new BreadthFirstSearch(networkGraph, startAccount);
+                    bfs.RunBFS();
+                    bfsPath = bfs.Path(destAccount);
+                    bfsPath.Reverse();
+                    string resultBFS = "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
+                    resultBFS += bfs.PrintStringBFS(bfsPath);
+                    textBoxResult.Text = resultBFS;
+                }
+
+                else if (radioButtonDFS.Checked)
+                {
+                    dfs = new DepthFirstSearch(networkGraph, startAccount);
+                    dfs.RunDFS();
+                    dfsPath = dfs.Path(destAccount);
+                    dfsPath.Reverse();
+                    string resultDFS = "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
+                    resultDFS += dfs.PrintStringDFS(bfsPath);
+                    textBoxResult.Text = resultDFS;
+
+                }
+                else
+                {
+                    MessageBox.Show("Please select an algorithm");
+                }
+            }
+            else
             {
-                dfs = new DepthFirstSearch(networkGraph, startAccount); 
-                dfs.RunDFS();
-                dfsPath = dfs.Path(destAccount); 
-                dfsPath.Reverse();
-                string resultDFS = dfs.PrintStringDFS(dfsPath); 
-                textBoxResult.Text = resultDFS;
-
+                friendRec = new MutualFriend(networkGraph, startAccount);
+                //friendRec.FindMutualFriend();
+                string result1 = friendRec.PrintHasil();
+                textBoxResult.Multiline = true;
+                textBoxResult.Text = result1;
             }
-
-            friendRec = new MutualFriend(networkGraph, startAccount);  
-            //friendRec.FindMutualFriend();
-            string result1 = friendRec.PrintHasil();
-            textBoxResult.Multiline = true;
-            textBoxResult.Text = result1;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -130,8 +154,24 @@ namespace setres
                     {
 
                     }
+
+                    radioButtonDFS.Enabled = true;
+                    radioButtonBFS.Enabled = true;
+                    comboBoxChooseAccount.Enabled = true;
+                    comboBoxExploreFriends.Enabled = true;
+                    buttonSubmit.Enabled = true;
                 }
             }
+        }
+
+        private void buttonReset_Click(object Sender, EventArgs e)
+        {
+            radioButtonBFS.Checked = false;
+            radioButtonDFS.Checked = false;
+            comboBoxChooseAccount.ResetText();
+            comboBoxExploreFriends.ResetText();
+            textBoxResult.ResetText();
+            clearGraph();
         }
 
         private void fillCombo (string[] input)
@@ -167,8 +207,8 @@ namespace setres
             for (int i = 1; i < input.Length; i++)
             {
                 //create the graph content 
-                string[] lines2 = input[i].Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
-                var edge = graph.AddEdge(lines2[0], lines2[1]);
+                string[] content = input[i].Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
+                var edge = graph.AddEdge(content[0], content[1]);
                 edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
                 edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
 
@@ -181,6 +221,35 @@ namespace setres
 
             panelGraph.Controls.Add(viewer);
         }
+
+        private void clearGraph()
+        {
+            GViewer viewer = new GViewer();
+            viewer.Graph = graph;
+            viewer.Name = "viewer";
+            viewer.Dock = DockStyle.Fill;
+
+            panelGraph.Controls.Clear();
+            panelGraph.Controls.Add(viewer);
+        }
+
+        private void colorGraph (string[] input, string startAcc)
+        {
+            //create a viewer object 
+            GViewer viewer = new GViewer();
+            Microsoft.Msagl.Drawing.Graph graph1 = new Microsoft.Msagl.Drawing.Graph();
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                //create the graph content 
+                string[] content = input[i].Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
+                var edge = graph1.AddEdge(content[0], content[1]);
+                edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
+
+            }
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 

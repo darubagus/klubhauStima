@@ -44,6 +44,7 @@ namespace setres
             this.panelGraph = new System.Windows.Forms.Panel();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.labelResults = new System.Windows.Forms.Label();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonBrowse
@@ -106,7 +107,7 @@ namespace setres
             // buttonSubmit
             // 
             this.buttonSubmit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonSubmit.Location = new System.Drawing.Point(375, 595);
+            this.buttonSubmit.Location = new System.Drawing.Point(350, 596);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(94, 34);
             this.buttonSubmit.TabIndex = 9;
@@ -205,12 +206,24 @@ namespace setres
             this.labelResults.Text = "Results:";
             this.labelResults.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            // buttonReset
+            // 
+            this.buttonReset.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonReset.Location = new System.Drawing.Point(510, 596);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(94, 34);
+            this.buttonReset.TabIndex = 20;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(908, 856);
+            this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.labelResults);
             this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.panelGraph);
@@ -249,6 +262,7 @@ namespace setres
         private System.Windows.Forms.Panel panelGraph;
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Label labelResults;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
 
