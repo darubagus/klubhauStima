@@ -95,8 +95,10 @@ namespace setres
                     bfs = new BreadthFirstSearch(networkGraph, startAccount);
                     bfs.RunBFS();
                     bfsPath = bfs.Path(destAccount);
+                    int level = bfs.PrintLevel(destAccount);    
                     bfsPath.Reverse();
                     string resultBFS = "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
+                    resultBFS += level.ToString() + "th degree connection \r\n";
                     resultBFS += bfs.PrintStringBFS(bfsPath);
                     textBoxResult.Text = resultBFS;
                 }
@@ -106,8 +108,10 @@ namespace setres
                     dfs = new DepthFirstSearch(networkGraph, startAccount);
                     dfs.RunDFS();
                     dfsPath = dfs.Path(destAccount);
+                    int degree = dfs.PrintInterval(destAccount);
                     dfsPath.Reverse();
                     string resultDFS = "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
+                    resultDFS += degree.ToString() + "th degree connection \r\n";
                     resultDFS += dfs.PrintStringDFS(dfsPath);
                     textBoxResult.Text = resultDFS;
 

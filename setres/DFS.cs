@@ -122,8 +122,6 @@ namespace Stima
         public string PrintStringDFS(List<Node> path)
         {
             string hasil = "";
-            int num = path.Count - 2;
-            hasil += num.ToString() + " degree connection \r\n";
             foreach (Node n in path)
             {
                 hasil += n.Name + " > ";
