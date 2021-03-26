@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Stima
@@ -133,7 +134,15 @@ namespace Stima
             string hasil = "";
             foreach (Node n in path)
             {
-                hasil += n.Name + " > ";
+                if (n != path.Last())
+                {
+                    hasil += n.Name + " > ";
+                }
+                else
+                {
+                    hasil += n.Name;
+                }
+                //hasil += n.Name + " > ";
             }
             hasil += "\r\n";
 
