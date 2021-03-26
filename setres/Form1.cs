@@ -42,6 +42,7 @@ namespace setres
             radioButtonBFS.Enabled = false;
             radioButtonDFS.Enabled = false;
             buttonSubmit.Enabled = false;
+            buttonReset.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -107,7 +108,7 @@ namespace setres
                     dfsPath = dfs.Path(destAccount);
                     dfsPath.Reverse();
                     string resultDFS = "Nama akun: " + startAccount + " dan " + destAccount + "\r\n";
-                    resultDFS += dfs.PrintStringDFS(bfsPath);
+                    resultDFS += dfs.PrintStringDFS(dfsPath);
                     textBoxResult.Text = resultDFS;
 
                 }
@@ -160,6 +161,7 @@ namespace setres
                     comboBoxChooseAccount.Enabled = true;
                     comboBoxExploreFriends.Enabled = true;
                     buttonSubmit.Enabled = true;
+                    buttonReset.Enabled = true;
                 }
             }
         }
