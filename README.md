@@ -56,7 +56,14 @@ TODO jelasin cara kerja
 * (Recommended) Visual Studio IDE
 
 ## Instalasi & Cara Penggunaan
-TODO
+* Clone repositori:
+```
+git clone https://github.com/darubagus/klubhauStima.git
+```
+* Buka folder bin
+* Jalankan setres.exe
+
+Pastikan file test case dalam bentuk .txt dan penulisan isinya sesuai dengan spesifikasi.
 
 ## Author
 * Rayhan Alghifari Fauzta (13519039)
